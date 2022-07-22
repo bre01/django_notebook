@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <p><a href="{% url 'app_a:topic' topic.id %}" > {{topic}}</a></p>
+    <p>Topic:  <a href="{% url 'app_a:topic' topic.id %}" >{{topic}}</a></p>
 
     <p>Add a new entry:</p>
     <form action="{% url 'app_a:new_entry' topic.id %} " method='post'>

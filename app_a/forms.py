@@ -5,7 +5,7 @@ from .models import Entry, Topic
 class TopicForm(forms.ModelForm):
     class Meta:
         model = Topic
-        fields = ['text']
+        fields = ['text',]
         labels = {'text': ''}
 
 

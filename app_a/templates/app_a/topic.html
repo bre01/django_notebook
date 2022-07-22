@@ -3,9 +3,10 @@
 
 {% block content %}
 
-<p>Topic: {{topic}} </p>
+<p>Topic: <a href="{% url 'app_a:topic' topic.id %}">{{topic}} </a> </p>
 
 <p>Entries:</p>
+<p><a href="{% url 'app_a:new_entry' topic.id %}"> Add new entry</a></p>
 <ul>
     {% for entry in entries %}
         <li>
