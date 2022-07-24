@@ -20,9 +20,9 @@ from app_a.views import sec
 from app_b.views import fir
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('appa/', include ('app_a.urls')),
-
-    
+    path('', include ('app_a.urls')),
+    path('users/',include('users.urls')),
+     
 
     path('appb/',fir,name='fir'), 
 

@@ -1,0 +1,14 @@
+{% extends 'app_a/base.html' %}
+{% block content %}
+    {% if form.erros %} 
+        <p>Your username and password didn't match. Please try again.</p>   
+    {% endif %} 
+
+    <form method="POST" action="{% url 'users:login' %}" >
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button name="submit">Log in</button>
+        <input type="hidden" name="text" value="{% url 'app_a:index' %} " />
+    </form>
+
+{% endblock content %}
