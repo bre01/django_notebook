@@ -1,22 +1,29 @@
 
 {% extends 'app_a/base.html' %}
 
+{% block page_header %}
+
+<h3>Topic: <a href="{% url 'app_a:topic' topic.id %}">{{topic}} </a></h3>
+{% endblock page_header %}
 {% block content %}
-
-<p>Topic: <a href="{% url 'app_a:topic' topic.id %}">{{topic}} </a> </p>
-
 <p>Entries:</p>
 <p><a href="{% url 'app_a:new_entry' topic.id %}"> Add new entry</a></p>
-<ul>
+
     {% for entry in entries %}
-        <li>
-            <p>{{ entry.date_added|date:'M d,Y H:i' }}</p>
-            <p>{{entry.text|linebreaks }}</p>
-            <P><a href="{% url 'app_a:edit_entry' entry.id %}">Edit entry </a></P>
-        </li>
+        <div class="card mb-3">
+            <h4 class="card_header ">
+                <a>   </a>
+                {{entry.date_added|date:'M d,Y H:i' }}
+            
+            <small><a href="{% url 'app_a:edit_entry' entry.id %}">Edit entry </a></small>
+            </h4>
+            <div class="card-body">
+                {{ entry.text| linebreaks }}
+            </div>
+        </div>
     {% empty %}
-        <li>There are no entries for this topic yet.</li>
+        <p>There are no entries for this topic yet.</p>
     {% endfor %}
-</ul>
+
 
 {% endblock content %}
